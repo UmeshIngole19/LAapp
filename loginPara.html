@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+<body>
+    <script>
+        // JavaScript function to parse query parameters from the URL
+        function getQueryParams() {
+            var queryParams = {};
+            var queryString = window.location.search.substring(1);
+            var pairs = queryString.split("&");
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split("=");
+                queryParams[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return queryParams;
+        }
+
+        // Get the query parameters
+        var queryParams = getQueryParams();
+
+        // Example usage: Output query parameters to console
+        console.log(queryParams);
+    </script>
+</body>
+</html>
