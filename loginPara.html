@@ -6,6 +6,7 @@
     <title>Example</title>
 </head>
 <body>
+    <button id="showButton">Show Content</button>
     <script>
         // JavaScript function to parse query parameters from the URL
         function getQueryParams() {
@@ -23,7 +24,7 @@
         var queryParams = getQueryParams();
 
         // Example usage: Output query parameters to console
-        console.log(queryParams);
+        document.getElementById('display').innerText = queryParams;
     </script>
 </body>
 </html>
