@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+<body>
+    <button id="showButton">Show Content</button>
+    <button id="display">Data From: </button>
+
+    <script>
+        // Define the showContent function globally
+        function showContent(data) {
+            document.getElementById('display').innerText = "Data From: "+data;
+        }
+
+        // Add an event listener to the button to call the showContent function
+        document.getElementById('showButton').addEventListener('click', function() {
+            // Call the showContent function with some data
+            showContent('Destop');
+        });
+    </script>
+</body>
+</html>
