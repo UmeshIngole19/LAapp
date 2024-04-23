@@ -16,8 +16,20 @@
     }
 
     // Example usage
-    const myCookieValue = getCookie('your_cookie_name');
+    const myCookieValue = getCookie('fcmToken');
     console.log('Cookie value:', myCookieValue);
+   // Create HTML elements to display query parameters
+        var container = document.createElement("div");
+        container.innerHTML = "<h2>Cookies Parameters:</h2>";
+        
+            var para = document.createElement("p");
+            var text = document.createTextNode(Cookie value + ": " + myCookieValue);
+            para.appendChild(text);
+            container.appendChild(para);
+    
+
+        // Append the container to the body
+        document.body.appendChild(container);
 </script>
 </body>
 </html>
