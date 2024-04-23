@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="./style.css" />
+<style>
+  /* Additional or modified styles can be added here */
+</style>
+</head>
+<body>
+<div class="button-container">
+  <div class="buttons-wrapper">
+    <button id="login-btn" class="notification-btn">Login</button>
+  </div>
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // Function to handle login button click on the web page
+  function handleWebLogin() {
+    // Redirect to another page
+    //window.location.href = 'index.html'; // Redirects to index.html in the same directory
+    //debugger;
+    // Extract fcmToken from query parameters
+    const fcmTokenFromQueryParams = extractFcmTokenFromQueryParams();
+    console.log('fcmToken from query parameters:', fcmTokenFromQueryParams);
+ 
+    // Extract fcmToken from cookies
+    const fcmTokenFromCookie = extractFcmTokenFromCookie();
+    console.log('fcmToken from cookie:', fcmTokenFromCookie);
+  }
+ 
+  // Event listener for login button click on the web page
+  $('#login-btn').click(function() {
+    handleWebLogin();
+  });
+ 
+  // Function to extract fcmToken from query parameters
+  function extractFcmTokenFromQueryParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('fcmToken');
+  }
+ 
+  // Function to extract fcmToken from cookies
+  function extractFcmTokenFromCookie() {
+    const cookieName = 'fcmToken';
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [name, value] = cookie.split('=').map(c => c.trim());
+      if (name === cookieName) {
+        return value;
+      }
+    }
+    return null;
+  }
+ 
+  // Listen for messages from Android app
+</script>
+ 
+</body>
+</html>
