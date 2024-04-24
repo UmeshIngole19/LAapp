@@ -6,7 +6,7 @@
 <title>Login Page</title>
 <link rel="stylesheet" href="./style.css" />
 <style>
-  /* Additional or modified styles can be added here */
+ 
 </style>
 </head>
 <body>
@@ -16,20 +16,26 @@
   </div>
 </div>
  
+<!-- for testing purpose -->
+<div id="query-params-value"></div>
+<div id="cookie-value"></div>
+ 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   // Function to handle login button click on the web page
   function handleWebLogin() {
     // Redirect to another page
-    //window.location.href = 'index.html'; // Redirects to index.html in the same directory
-    //debugger;
+   // window.location.href = 'index.html'; // Redirects to index.html in the same directory
+   
     // Extract fcmToken from query parameters
     const fcmTokenFromQueryParams = extractFcmTokenFromQueryParams();
     console.log('fcmToken from query parameters:', fcmTokenFromQueryParams);
+    displayFcmTokenFromQueryParams(fcmTokenFromQueryParams);
  
     // Extract fcmToken from cookies
     const fcmTokenFromCookie = extractFcmTokenFromCookie();
-    console.log('fcmToken from cookie:', fcmTokenFromCookie);
+    console.log('fcmToken from cookie:::', fcmTokenFromCookie);
+    displayFcmTokenFromCookie(fcmTokenFromCookie);
   }
  
   // Event listener for login button click on the web page
@@ -39,6 +45,7 @@
  
   // Function to extract fcmToken from query parameters
   function extractFcmTokenFromQueryParams() {
+    debugger;
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('fcmToken');
   }
@@ -56,8 +63,31 @@
     return null;
   }
  
-  // Listen for messages from Android app
+  // Function to display fcmToken from query parameters on the HTML screen
+  function displayFcmTokenFromQueryParams(token) {
+  //  debugger;
+    const queryParamsValue = document.getElementById('query-params-value');
+    if (token) {
+      queryParamsValue.textContent = 'FCM Token from Query Params: ' + token;
+    } else {
+      queryParamsValue.textContent = 'FCM Token not found in Query Params';
+    }
+  }
+ 
+  // Function to display fcmToken from cookies on the HTML screen
+  function displayFcmTokenFromCookie(token) {
+   // debugger
+    const cookieValue = document.getElementById('cookie-value');
+    if (token) {
+      cookieValue.textContent = 'FCM Token from Cookie: ' + token;
+    } else {
+      cookieValue.textContent = 'FCM Token not found in Cookie';
+    }
+  }
+ 
+ 
 </script>
  
 </body>
 </html>
+ 
